@@ -221,10 +221,11 @@ nav a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 999; /* ensures modal stays above everything */
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 .modal-content {
