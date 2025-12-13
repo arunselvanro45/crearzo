@@ -345,3 +345,43 @@ header {
     height: 28px;
   }
 }
+/* ================= DESKTOP HEADER FIX ================= */
+@media (min-width: 768px) {
+
+  header {
+    height: 64px;
+  }
+
+  .nav-container {
+    height: 100%;
+    padding: 0 2rem;
+  }
+
+  /* Logo should be small and unobtrusive */
+  .brand img {
+    height: 26px;
+    width: auto;
+  }
+}
+/* ================= NAV BUTTON STYLE ================= */
+
+.nav-links a {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+/* Hover state */
+.nav-links a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+/* Optional: active page feel (future-ready) */
+.nav-links a.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
