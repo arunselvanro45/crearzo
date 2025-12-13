@@ -118,6 +118,36 @@
   <!-- ================= SCRIPTS ================= -->
   <script src="data/portfolio.js"></script>
   <script src="script.js"></script>
+  <!-- ================= PORTFOLIO MODAL ================= -->
+<div id="portfolioModal" class="portfolio-modal" aria-hidden="true">
+
+  <!-- Overlay -->
+  <div class="modal-overlay"></div>
+
+  <!-- Modal Box -->
+  <div class="modal-box">
+
+    <!-- Close Button -->
+    <button class="modal-close" aria-label="Close preview">×</button>
+
+    <!-- Modal Content -->
+    <div class="modal-content">
+
+      <!-- Text First -->
+      <h3 id="modalTitle"></h3>
+      <span id="modalCategory" class="modal-category"></span>
+      <p id="modalDescription"></p>
+
+      <!-- Image Below -->
+      <div class="modal-image">
+        <img id="modalImage" src="" alt="Project preview">
+      </div>
+
+    </div>
+
+  </div>
+</div>
 
 </body>
 </html>
+
