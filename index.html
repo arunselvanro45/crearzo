@@ -94,22 +94,28 @@
   </section>
 
   <!-- =================================================
-       MODAL PREVIEW
-       Opens when a portfolio card is clicked
-  ================================================== -->
-  <div id="portfolioModal" class="hidden">
-    <div class="modal-content">
-      <span id="modalClose">&times;</span>
+     PORTFOLIO MODAL PREVIEW
+================================================== -->
+<div id="portfolioModal" class="hidden">
+  <div class="modal-content">
 
-      <!-- Large preview image -->
-      <img id="modalImage" src="" alt="Project preview" />
+    <button id="modalClose" aria-label="Close preview">✕</button>
 
-      <!-- Project details -->
+    <!-- Content first -->
+    <div class="modal-text">
       <h3 id="modalTitle"></h3>
-      <p id="modalCategory"></p>
+      <span id="modalCategory" class="badge"></span>
       <p id="modalDescription"></p>
     </div>
+
+    <!-- Image below -->
+    <div class="modal-image-wrapper">
+      <img id="modalImage" src="" alt="Project preview" />
+    </div>
+
   </div>
+</div>
+
 
   <!-- =================================================
        ABOUT SECTION
@@ -138,33 +144,55 @@
     </div>
   </section>
 
-  <!-- =================================================
-       CONTACT SECTION
-       WhatsApp + Email + Contact Form
-  ================================================== -->
-  <section id="contact">
-    <div class="container">
+ <section id="contact">
+  <div class="container">
 
-      <h2>Contact</h2>
+    <h2>Let’s work together</h2>
+    <p class="contact-subtext">
+      Reach us instantly or share your project details below.
+    </p>
 
-      <!-- Contact form -->
-      <form id="contactForm">
+    <!-- PRIMARY CONTACT ACTIONS -->
+    <div class="contact-actions">
 
-        <input type="text" id="name" placeholder="Your Name" required />
-        <input type="tel" id="phone" placeholder="Phone Number" required />
-        <textarea id="message" placeholder="Tell me about your project"></textarea>
+      <a
+        href="https://wa.me/911234567890"
+        target="_blank"
+        class="contact-card primary"
+      >
+        💬 Chat on WhatsApp
+        <span>Fastest response</span>
+      </a>
 
-        <button type="submit">Send Message</button>
-      </form>
+      <a
+        href="tel:+911234567890"
+        class="contact-card"
+      >
+        📞 Call Us
+        <span>+91 12345 67890</span>
+      </a>
 
-      <!-- Direct contact links -->
-      <div class="contact-links">
-        <a href="mailto:crearzo@gmail.com">crearzo@gmail.com</a>
-        <a id="whatsappLink" href="#" target="_blank">WhatsApp</a>
-      </div>
+      <a
+        href="mailto:crearzo@gmail.com"
+        class="contact-card"
+      >
+        ✉️ Email
+        <span>crearzo@gmail.com</span>
+      </a>
 
     </div>
-  </section>
+
+    <!-- ONE-SHOT CONTACT FORM -->
+    <form id="contactForm" class="contact-form">
+      <input type="text" id="name" placeholder="Your Name" required />
+      <input type="tel" id="phone" placeholder="Phone Number" required />
+      <textarea id="message" placeholder="Brief about your project"></textarea>
+      <button type="submit">Send via WhatsApp</button>
+    </form>
+
+  </div>
+</section>
+
 
   <!-- =================================================
        FOOTER
@@ -179,5 +207,6 @@
 
 </body>
 </html>
+
 
 
