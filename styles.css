@@ -216,3 +216,71 @@ header {
     align-items: center;
   }
 }
+/* ================= PORTFOLIO MODAL ================= */
+
+.portfolio-modal {
+  display: none !important; /* Safety: hidden by default */
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+}
+
+.portfolio-modal.active {
+  display: block !important;
+}
+
+/* Overlay */
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+}
+
+/* Modal box */
+.modal-box {
+  position: relative;
+  max-width: 800px;
+  margin: 5vh auto;
+  background: #0e0e11;
+  border-radius: 16px;
+  padding: 2rem;
+  z-index: 1;
+}
+
+/* Close button */
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Modal content */
+.modal-content h3 {
+  font-size: 1.4rem;
+}
+
+.modal-category {
+  display: inline-block;
+  margin: 0.5rem 0 1rem;
+  font-size: 0.75rem;
+  color: #93c5fd;
+}
+
+.modal-content p {
+  color: #cbd5e1;
+}
+
+/* Image */
+.modal-image {
+  margin-top: 1.5rem;
+}
+
+.modal-image img {
+  width: 100%;
+  border-radius: 12px;
+}
