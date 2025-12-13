@@ -9,19 +9,19 @@ const portfolioData = [
   {
     title: "Cafe Aroma",
     category: "Food & Beverage",
-    image: "assets/portfolio/cafe-aroma.jpg",
+    image: "assets/portfolio/project1.jpg",
     description: "Minimal logo design for a modern cafe brand focused on warmth and freshness."
   },
   {
     title: "TechNova",
     category: "Technology",
-    image: "assets/portfolio/technova.jpg",
+    image: "assets/portfolio/project2.jpg",
     description: "Clean and futuristic logo identity for a SaaS startup."
   },
   {
     title: "Urban Vogue",
     category: "Fashion",
-    image: "assets/portfolio/urban-vogue.jpg",
+    image: "assets/portfolio/project3.jpg",
     description: "Bold typography logo for a streetwear fashion label."
   }
 ];
