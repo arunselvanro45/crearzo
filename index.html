@@ -1,212 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- ================= BASIC META ================= -->
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- ================= SEO META ================= -->
-  <meta name="description" content="Crearzo is a logo and brand identity design studio. 4+ years experience, 100+ logos, 40+ global clients." />
-  <meta name="keywords" content="logo design, brand identity, logo designer, branding studio, Crearzo" />
-  <meta name="author" content="Crearzo" />
-  <!-- ================= SOCIAL PREVIEW ================= -->
-  <meta property="og:title" content="Crearzo — Logo & Brand Identity Design" />
-  <meta property="og:description" content="Professional logo & brand identity design studio with global clients." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://crearzo.in" />
-  <meta property="og:image" content="https://crearzo.in/assets/branding/crearzo-logo.png" />
-
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <title>Crearzo — Logo & Brand Identity</title>
-
-  <!-- ================= GOOGLE FONTS =================
-       Fonts are defined here so they can be changed easily later -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@500;600;700&display=swap" rel="stylesheet">
-
-  <!-- ================= MAIN STYLES ================= -->
-  <link rel="stylesheet" href="styles.css" />
-  
-</head>
-
-<body>
-
-  <!-- =================================================
-       HEADER / NAVIGATION
-       Controls top navigation and branding
-  ================================================== -->
-  <header id="header">
-    <div class="container">
-      <img src="assets/branding/crearzo-logo.png" alt="Crearzo Logo" class="logo" />
-
-      <nav>
-        <a href="#hero">Home</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-      </nav>
+            </div>
+        </div>
     </div>
-  </header>
+</header>
 
-  <!-- =================================================
-       HERO SECTION
-       First impression section with branding message
-  ================================================== -->
-  <section id="hero">
-  <!-- Background logo watermark -->
-  <img
-    src="assets/branding/crearzo-logo.png"
-    alt="Crearzo background logo"
-    class="hero-bg-logo"
-  />
-
-  <div class="container hero-content">
-    <h1>Logo & Brand Identity Design</h1>
-    <p>
-      Creating meaningful, scalable brand identities.
-      4+ years experience • 100+ logos • 40+ global clients.
-    </p>
-  </div>
+<!-- About Section -->
+<section id="about" class="section">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">
+                    I design logos that feel right — visually balanced, emotionally connected, and strategically aligned with your brand goals.
+                </p>
+            </div>
+        </div>
+    </div>
 </section>
 
-
-  <!-- =================================================
-       PORTFOLIO SECTION
-       Projects will be injected here dynamically via JS
-  ================================================== -->
-  <section id="portfolio">
+<!-- Portfolio Section -->
+<section id="portfolio" class="section bg-light">
     <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <h2 class="section-title">Portfolio</h2>
+            </div>
+        </div>
 
-      <h2>Portfolio</h2>
-
-      <!-- Search input for filtering projects -->
-      <input
-        type="text"
-        id="portfolioSearch"
-        placeholder="Search by brand or category..."
-      />
-
-      <!-- Portfolio cards container (JS will render cards here) -->
-      <div id="portfolioGrid">
-        <!-- Cards generated from data/portfolio.js -->
-      </div>
-
+        <div class="row g-4 mt-4">
+            <div class="col-md-4">
+                <div class="portfolio-item" data-image="img/project1.jpg">
+                    <img src="img/project1.jpg" class="img-fluid" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="portfolio-item" data-image="img/project2.jpg">
+                    <img src="img/project2.jpg" class="img-fluid" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="portfolio-item" data-image="img/project3.jpg">
+                    <img src="img/project3.jpg" class="img-fluid" />
+                </div>
+            </div>
+        </div>
     </div>
-  </section>
+</section>
 
-  <!-- =================================================
-     PORTFOLIO MODAL PREVIEW
-================================================== -->
-<div id="portfolioModal" class="hidden">
-  <div class="modal-content">
+<!-- Contact Section -->
+<section id="contact" class="section">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col">
+                <h2 class="section-title">Let’s Work Together</h2>
+                <p class="section-subtitle">
+                    Have a brand idea in mind? Let’s turn it into a visual identity.
+                </p>
 
-    <button id="modalClose" aria-label="Close preview">✕</button>
-
-    <!-- Content first -->
-    <div class="modal-text">
-      <h3 id="modalTitle"></h3>
-      <span id="modalCategory" class="badge"></span>
-      <p id="modalDescription"></p>
+                <div class="contact-actions">
+                    <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="btn btn-success me-2">Chat on WhatsApp</a>
+                    <a href="mailto:yourmail@gmail.com" class="btn btn-outline-dark">Email Me</a>
+                </div>
+            </div>
+        </div>
     </div>
+</section>
 
-    <!-- Image below -->
-    <div class="modal-image-wrapper">
-      <img id="modalImage" src="" alt="Project preview" />
-    </div>
-
-  </div>
+<!-- Portfolio Modal -->
+<div id="portfolioModal" class="portfolio-modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modalImage">
 </div>
 
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- =================================================
-       ABOUT SECTION
-       Personal / brand story and profile image
-  ================================================== -->
-  <section id="about">
-    <div class="container">
-
-      <h2>About Crearzo</h2>
-
-      <div class="about-content">
-        <img
-          src="assets/profile/about-photo.jpg"
-          alt="About Crearzo"
-          class="about-photo"
-        />
-
-        <p>
-          Crearzo is a logo and brand identity studio focused on creating
-          timeless, functional, and scalable brand visuals. With clients
-          across industries and geographies, each project is approached
-          with clarity, research, and creativity.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
- <section id="contact">
-  <div class="container">
-
-    <h2>Let’s work together</h2>
-    <p class="contact-subtext">
-      Reach us instantly or share your project details below.
-    </p>
-
-    <!-- PRIMARY CONTACT ACTIONS -->
-    <div class="contact-actions">
-
-      <a
-        href="https://wa.me/911234567890"
-        target="_blank"
-        class="contact-card primary"
-      >
-        💬 Chat on WhatsApp
-        <span>Fastest response</span>
-      </a>
-
-      <a
-        href="tel:+911234567890"
-        class="contact-card"
-      >
-        📞 Call Us
-        <span>+91 12345 67890</span>
-      </a>
-
-      <a
-        href="mailto:crearzo@gmail.com"
-        class="contact-card"
-      >
-        ✉️ Email
-        <span>crearzo@gmail.com</span>
-      </a>
-
-    </div>
-
-    <!-- ONE-SHOT CONTACT FORM -->
-    <form id="contactForm" class="contact-form">
-      <input type="text" id="name" placeholder="Your Name" required />
-      <input type="tel" id="phone" placeholder="Phone Number" required />
-      <textarea id="message" placeholder="Brief about your project"></textarea>
-      <button type="submit">Send via WhatsApp</button>
-    </form>
-
-  </div>
-</section>
-
-
-  <!-- =================================================
-       FOOTER
-  ================================================== -->
-  <footer>
-    <p>© <span id="year"></span> Crearzo. All rights reserved.</p>
-  </footer>
-
-  <!-- ================= MAIN SCRIPT ================= -->
-  <script src="data/portfolio.js"></script>
-  <script src="script.js"></script>
-
+<!-- Custom JS -->
+<script src="js/main.js"></script>
 </body>
 </html>
-
-
-
