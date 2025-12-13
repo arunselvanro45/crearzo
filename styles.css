@@ -370,4 +370,7 @@ footer {
 input, textarea, button {
   font-family: inherit;
 }
-/*  CONTACT SECTION STYLES */
+/*--------*/
+.hidden {
+  display: none !important;
+}
