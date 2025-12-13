@@ -318,3 +318,30 @@ header {
   opacity: 0.6;
   cursor: not-allowed;
 }
+/* ================= HEADER BRAND FIX (DESKTOP) ================= */
+
+@media (min-width: 768px) {
+
+  /* Make header slimmer */
+  header {
+    padding: 0;
+  }
+
+  .nav-container {
+    height: 64px; /* Controlled header height */
+  }
+
+  /* Move logo to the right */
+  .brand {
+    order: 2; /* Push logo to right */
+  }
+
+  .nav-links {
+    order: 1; /* Nav links stay on left */
+  }
+
+  /* Reduce logo size */
+  .brand img {
+    height: 28px;
+  }
+}
