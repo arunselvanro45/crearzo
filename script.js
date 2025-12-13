@@ -97,6 +97,10 @@ contactForm.addEventListener("submit", (e) => {
 
   window.open(whatsappURL, "_blank");
 });
+modalClose.addEventListener("click", () => {
+  modal.classList.add("hidden");
+});
+
 
 // Direct WhatsApp link
 whatsappLink.href = "https://wa.me/919360345912";
@@ -106,3 +110,4 @@ whatsappLink.href = "https://wa.me/919360345912";
 ===================================================== */
 
 document.getElementById("year").textContent = new Date().getFullYear();
+
