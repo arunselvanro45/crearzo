@@ -1,81 +1,100 @@
-<!DOCTYPE html>
-            </div>
-        </div>
-    </div>
+  <!-- Brand Logo -->
+  <div class="brand">
+    <img src="assets/branding/crearzo-logo.png" alt="Crearzo Logo" />
+  </div>
+
+  <!-- Navigation Links -->
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+</nav>
+<header class="section-header">
+  <h2>Portfolio</h2>
+  <p>Selected branding and logo design works</p>
 </header>
 
-<!-- About Section -->
-<section id="about" class="section">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col">
-                <h2 class="section-title">About Me</h2>
-                <p class="section-subtitle">
-                    I design logos that feel right — visually balanced, emotionally connected, and strategically aligned with your brand goals.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Portfolio Section -->
-<section id="portfolio" class="section bg-light">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col">
-                <h2 class="section-title">Portfolio</h2>
-            </div>
-        </div>
-
-        <div class="row g-4 mt-4">
-            <div class="col-md-4">
-                <div class="portfolio-item" data-image="img/project1.jpg">
-                    <img src="img/project1.jpg" class="img-fluid" />
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="portfolio-item" data-image="img/project2.jpg">
-                    <img src="img/project2.jpg" class="img-fluid" />
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="portfolio-item" data-image="img/project3.jpg">
-                    <img src="img/project3.jpg" class="img-fluid" />
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="section">
-    <div class="container">
-        <div class="row text-center">
-            <div class="col">
-                <h2 class="section-title">Let’s Work Together</h2>
-                <p class="section-subtitle">
-                    Have a brand idea in mind? Let’s turn it into a visual identity.
-                </p>
-
-                <div class="contact-actions">
-                    <a href="https://wa.me/91XXXXXXXXXX" target="_blank" class="btn btn-success me-2">Chat on WhatsApp</a>
-                    <a href="mailto:yourmail@gmail.com" class="btn btn-outline-dark">Email Me</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Portfolio Modal -->
-<div id="portfolioModal" class="portfolio-modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modalImage">
+<!-- Search Input (JS will handle logic later) -->
+<div class="portfolio-search">
+  <input type="text" id="portfolioSearch" placeholder="Search by title or category" />
 </div>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Portfolio Cards Container -->
+<!-- Projects will be injected dynamically from data/portfolio.js -->
+<div id="portfolioGrid" class="portfolio-grid"></div>
+<div class="modal-overlay"></div>
 
-<!-- Custom JS -->
-<script src="js/main.js"></script>
-</body>
-</html>
+<div class="modal-content">
+  <button class="modal-close" aria-label="Close project preview">×</button>
+
+  <!-- Modal Text Content -->
+  <div class="modal-text">
+    <h3 id="modalTitle"></h3>
+    <span id="modalCategory" class="modal-category"></span>
+    <p id="modalDescription"></p>
+  </div>
+
+  <!-- Modal Image -->
+  <div class="modal-image">
+    <img id="modalImage" src="" alt="Project preview" />
+  </div>
+</div>
+<header class="section-header">
+  <h2>About Crearzo</h2>
+</header>
+
+<div class="about-content">
+  <div class="about-text">
+    <p>
+      I’m a logo and brand identity designer with 4+ years of experience,
+      having completed over 100 logo projects for 40+ clients globally.
+    </p>
+    <p>
+      My focus is on building clean, timeless, and strategic brand visuals
+      that help businesses stand out.
+    </p>
+  </div>
+
+  <div class="about-image">
+    <img src="assets/profile/about-photo.jpg" alt="About Crearzo" />
+  </div>
+</div>
+<header class="section-header">
+  <h2>Contact</h2>
+  <p>Let’s discuss your brand</p>
+</header>
+
+<!-- Primary Contact Options -->
+<div class="contact-options">
+
+  <!-- WhatsApp CTA -->
+  <a href="#" id="whatsappCTA" class="contact-whatsapp">
+    Chat on WhatsApp
+  </a>
+
+  <!-- Phone -->
+  <p class="contact-phone">
+    Phone: <a href="tel:+910000000000">+91 00000 00000</a>
+  </p>
+
+  <!-- Email -->
+  <p class="contact-email">
+    Email: <a href="mailto:hello@crearzo.in">hello@crearzo.in</a>
+  </p>
+
+</div>
+
+<!-- Contact Form -->
+<form id="contactForm" class="contact-form">
+
+  <input type="text" id="name" placeholder="Your Name" required />
+  <input type="tel" id="phone" placeholder="Phone Number" required />
+  <textarea id="message" placeholder="Your Message" required></textarea>
+
+  <!-- One-shot submit (JS will handle WhatsApp open) -->
+  <button type="submit">Send Message</button>
+
+</form>
