@@ -1,70 +1,45 @@
 /*
 ====================================================
 Crearzo Portfolio Website
-Navigation, Scroll & Portfolio Rendering
+Navigation + Portfolio Modal
 ====================================================
 */
 
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* ==================================================
-     STICKY HEADER OFFSET + SMOOTH SCROLL
-  ================================================== */
+  /* ================= NAV SCROLL ================= */
 
   const header = document.getElementById('header');
-  const navLinks = document.querySelectorAll('.nav-links a');
-
-  navLinks.forEach(function (link) {
+  document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', function (e) {
       e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (!target) return;
 
-      const targetSection = document.querySelector(this.getAttribute('href'));
-      if (!targetSection) return;
+      const offset = header.offsetHeight;
+      const position =
+        target.getBoundingClientRect().top + window.pageYOffset - offset;
 
-      const headerOffset = header.offsetHeight;
-      const sectionPosition = targetSection.getBoundingClientRect().top;
-      const offsetPosition =
-        sectionPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
+      window.scrollTo({ top: position, behavior: 'smooth' });
     });
   });
 
-  /* ==================================================
-     FOOTER YEAR AUTO UPDATE
-  ================================================== */
+  /* ================= FOOTER YEAR ================= */
 
-  const yearSpan = document.getElementById('year');
-  if (yearSpan) {
-    yearSpan.textContent = new Date().getFullYear();
-  }
+  document.getElementById('year').textContent = new Date().getFullYear();
 
-  /* ==================================================
-     PORTFOLIO CARD RENDERING (FROM data/portfolio.js)
-  ================================================== */
+  /* ================= PORTFOLIO RENDER ================= */
 
-  const portfolioGrid = document.getElementById('portfolioGrid');
+  const grid = document.getElementById('portfolioGrid');
+  if (!grid || typeof portfolioProjects === 'undefined') return;
 
-  // Safety check
-  if (!portfolioGrid || typeof portfolioProjects === 'undefined') {
-    return;
-  }
+  grid.innerHTML = '';
 
-  // Clear grid before rendering
-  portfolioGrid.innerHTML = '';
-
-  // Loop through each project
-  portfolioProjects.forEach(function (project, index) {
-
-    // Create card container
+  portfolioProjects.forEach((project, index) => {
     const card = document.createElement('div');
     card.className = 'portfolio-card';
-    card.setAttribute('data-index', index);
+    card.dataset.index = index;
 
-    // Card HTML
     card.innerHTML = `
       <div class="portfolio-card-image">
         <img src="${project.image}" alt="${project.title}">
@@ -75,8 +50,38 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
     `;
 
-    // Append card to grid
-    portfolioGrid.appendChild(card);
+    grid.appendChild(card);
   });
+
+  /* ================= MODAL LOGIC ================= */
+
+  const modal = document.getElementById('portfolioModal');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalCategory = document.getElementById('modalCategory');
+  const modalDescription = document.getElementById('modalDescription');
+  const modalImage = document.getElementById('modalImage');
+  const modalClose = document.querySelector('.modal-close');
+  const modalOverlay = document.querySelector('.modal-overlay');
+
+  grid.addEventListener('click', function (e) {
+    const card = e.target.closest('.portfolio-card');
+    if (!card) return;
+
+    const data = portfolioProjects[card.dataset.index];
+
+    modalTitle.textContent = data.title;
+    modalCategory.textContent = data.category;
+    modalDescription.textContent = data.description;
+    modalImage.src = data.image;
+
+    modal.classList.add('active');
+  });
+
+  function closeModal() {
+    modal.classList.remove('active');
+  }
+
+  modalClose.addEventListener('click', closeModal);
+  modalOverlay.addEventListener('click', closeModal);
 
 });
