@@ -312,3 +312,8 @@ footer {
   color: var(--text-muted);
   border-top: 1px solid #1f2430;
 }
+
+/* Mobile & Accessibility polish */
+input, textarea, button {
+  font-family: inherit;
+}
