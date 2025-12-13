@@ -1,117 +1,66 @@
-document.addEventListener("DOMContentLoaded", () => {
+# /*
 
-  /* =====================================================
-     ELEMENT REFERENCES
-  ===================================================== */
+Crearzo Portfolio Website
+Step 3: Navigation Behaviour & Scroll Handling
+Author: Crearzo
+Purpose:
 
-  const portfolioGrid = document.getElementById("portfolioGrid");
-  const searchInput = document.getElementById("portfolioSearch");
+* Ensure smooth scrolling
+* Fix scroll offset due to sticky header
+* Add basic safe DOM handling
+* NO portfolio logic yet
+  ====================================================
+  */
 
-  const modal = document.getElementById("portfolioModal");
-  const modalImage = document.getElementById("modalImage");
-  const modalTitle = document.getElementById("modalTitle");
-  const modalCategory = document.getElementById("modalCategory");
-  const modalDescription = document.getElementById("modalDescription");
-  const modalClose = document.getElementById("modalClose");
+// Always wait for DOM to load to avoid timing issues
+window.addEventListener('DOMContentLoaded', function () {
 
-  const contactForm = document.getElementById("contactForm");
+/* ================= HEADER OFFSET SETUP ================= */
 
-  /* =====================================================
-     SAFETY CHECK (VERY IMPORTANT)
-  ===================================================== */
+// Select the header (sticky navigation)
+const header = document.getElementById('header');
 
-  if (!portfolioGrid || !modal || !modalClose) {
-    console.error("Required DOM elements not found");
-    return;
-  }
+// Function to get current header height
+function getHeaderHeight() {
+return header.offsetHeight;
+}
 
-  /* =====================================================
-     RENDER PORTFOLIO
-  ===================================================== */
+/* ================= SMOOTH SCROLL WITH OFFSET ================= */
 
-  function renderPortfolio(projects) {
-    portfolioGrid.innerHTML = "";
+// Select all navigation links that point to sections
+const navLinks = document.querySelectorAll('.nav-links a');
 
-    projects.forEach(project => {
-      const card = document.createElement("div");
-      card.className = "portfolio-card";
+navLinks.forEach(function (link) {
+link.addEventListener('click', function (event) {
+event.preventDefault(); // Stop default jump
 
-      card.innerHTML = `
-        <img src="${project.image}" alt="${project.title}">
-        <h3>${project.title}</h3>
-        <p>${project.category}</p>
-      `;
+```
+  // Get target section ID from href
+  const targetId = this.getAttribute('href');
+  const targetSection = document.querySelector(targetId);
 
-      card.addEventListener("click", () => openModal(project));
+  if (!targetSection) return;
 
-      portfolioGrid.appendChild(card);
-    });
-  }
+  // Calculate scroll position with header offset
+  const headerOffset = getHeaderHeight();
+  const sectionPosition = targetSection.getBoundingClientRect().top;
+  const offsetPosition = sectionPosition + window.pageYOffset - headerOffset;
 
-  renderPortfolio(portfolioData);
-
-  /* =====================================================
-     SEARCH
-  ===================================================== */
-
-  searchInput?.addEventListener("input", () => {
-    const query = searchInput.value.toLowerCase();
-
-    const filtered = portfolioData.filter(project =>
-      project.title.toLowerCase().includes(query) ||
-      project.category.toLowerCase().includes(query)
-    );
-
-    renderPortfolio(filtered);
+  // Smooth scroll to adjusted position
+  window.scrollTo({
+    top: offsetPosition,
+    behavior: 'smooth'
   });
+});
+```
 
-  /* =====================================================
-     MODAL LOGIC
-  ===================================================== */
+});
 
-  function openModal(project) {
-    modalImage.src = project.image;
-    modalTitle.textContent = project.title;
-    modalCategory.textContent = project.category;
-    modalDescription.textContent = project.description;
+/* ================= FOOTER YEAR AUTO UPDATE ================= */
 
-    modal.classList.remove("hidden");
-  }
-
-  modalClose.addEventListener("click", () => {
-    modal.classList.add("hidden");
-  });
-
-  modal.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.classList.add("hidden");
-    }
-  });
-
-  /* =====================================================
-     CONTACT FORM → ONE-SHOT WHATSAPP
-  ===================================================== */
-
-  contactForm?.addEventListener("submit", (e) => {
-    e.preventDefault();
-
-    const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
-    const message = document.getElementById("message").value;
-
-    const text = `Name: ${name}%0APhone: ${phone}%0AMessage: ${message}`;
-    const whatsappURL = `https://wa.me/911234567890?text=${text}`;
-
-    window.open(whatsappURL, "_blank");
-  });
-
-  /* =====================================================
-     FOOTER YEAR
-  ===================================================== */
-
-  const year = document.getElementById("year");
-  if (year) {
-    year.textContent = new Date().getFullYear();
-  }
+const yearSpan = document.getElementById('year');
+if (yearSpan) {
+yearSpan.textContent = new Date().getFullYear();
+}
 
 });
