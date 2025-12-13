@@ -1,7 +1,9 @@
 /* ====================================================
-   Crearzo Portfolio – Base Styles
+   Crearzo Portfolio – Base + UI Styles
+   Step 6: Portfolio Card Styling
 ==================================================== */
 
+/* ================= RESET ================= */
 * {
   margin: 0;
   padding: 0;
@@ -15,7 +17,12 @@ body {
   line-height: 1.6;
 }
 
-h1, h2 {
+img {
+  max-width: 100%;
+  display: block;
+}
+
+h1, h2, h3 {
   font-family: 'Sora', sans-serif;
   color: #ffffff;
 }
@@ -25,7 +32,6 @@ section {
 }
 
 /* ================= HEADER ================= */
-
 header {
   position: sticky;
   top: 0;
@@ -37,10 +43,10 @@ header {
 .nav-container {
   max-width: 1200px;
   margin: auto;
+  padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
 }
 
 .nav-links {
@@ -49,8 +55,16 @@ header {
   list-style: none;
 }
 
-/* ================= HERO ================= */
+.nav-links a {
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
 
+.nav-links a:hover {
+  color: #ffffff;
+}
+
+/* ================= HERO ================= */
 .hero-section {
   min-height: 60vh;
   display: flex;
@@ -60,8 +74,15 @@ header {
 .hero-content {
   max-width: 1200px;
   margin: auto;
+  width: 100%;
   display: grid;
   gap: 3rem;
+}
+
+.hero-text p {
+  margin-top: 1rem;
+  max-width: 500px;
+  color: #cbd5e1;
 }
 
 .hero-image img {
@@ -70,41 +91,128 @@ header {
   border-radius: 16px;
 }
 
-/* ================= ABOUT ================= */
+/* ================= SECTION HEADER ================= */
+.section-header {
+  max-width: 900px;
+  margin: 0 auto 2rem auto;
+}
 
+.section-header p {
+  margin-top: 0.5rem;
+  color: #94a3b8;
+}
+
+/* ================= PORTFOLIO ================= */
+
+/* Search box */
+.portfolio-search {
+  max-width: 400px;
+  margin: 0 auto 2.5rem auto;
+}
+
+.portfolio-search input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: #15151a;
+  border: 1px solid #26262d;
+  border-radius: 8px;
+  color: #ffffff;
+}
+
+/* Portfolio grid */
+#portfolioGrid {
+  max-width: 1200px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+/* Portfolio card */
+.portfolio-card {
+  background: #15151a;
+  border: 1px solid #26262d;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-4px);
+  border-color: #3b82f6;
+}
+
+/* Image */
+.portfolio-card-image img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+/* Text */
+.portfolio-card-body {
+  padding: 1rem;
+}
+
+.portfolio-card-body h3 {
+  font-size: 1rem;
+}
+
+.portfolio-card-category {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.75rem;
+  color: #93c5fd;
+}
+
+/* ================= ABOUT ================= */
 .about-content {
+  max-width: 1200px;
+  margin: auto;
   display: grid;
   gap: 2rem;
 }
 
 /* ================= CONTACT ================= */
-
 .contact-whatsapp {
   display: inline-block;
-  background: #22c55e;
-  color: #000;
-  padding: 0.75rem 1.25rem;
-  border-radius: 6px;
   margin-bottom: 1rem;
+  padding: 0.75rem 1.25rem;
+  background: #22c55e;
+  color: #0e0e11;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+#contact form {
+  max-width: 500px;
+  display: grid;
+  gap: 1rem;
 }
 
 /* ================= FOOTER ================= */
-
 .footer {
   text-align: center;
   padding: 2rem;
+  font-size: 0.85rem;
   color: #94a3b8;
 }
 
 /* ================= DESKTOP ================= */
-
 @media (min-width: 768px) {
+
   .hero-content {
     grid-template-columns: 1.2fr 0.8fr;
     align-items: center;
   }
 
+  #portfolioGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .about-content {
     grid-template-columns: 1fr 1fr;
+    align-items: center;
   }
 }
